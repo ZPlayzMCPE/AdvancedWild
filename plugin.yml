@@ -1,0 +1,11 @@
+name: AdvancedWild
+version: 1.0.0
+api:
+- 2.1.0
+- 3.1.0
+- 3.0.0
+- 3.0.0-ALPHA5
+- 3.0.0-ALPHA4
+main: Wild\Main
+author: Az928
+description: Advanced wild teleportation plugin!
