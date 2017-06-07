@@ -59,10 +59,12 @@ class Main extends PluginBase implements Listener{
 	# @param ToDo: Make it more futuristic 
 	
 	public function onTeleport(EntityTeleportEvent $event){
-	     $entity = $event->getEntity();
+	     $to = $event->getTo();
+	     $from = $event->getFrom();
 	     if($entity instanceof Player){
 		    for($i = 0; $i < 3; $i += 0.1){
-		      $entity->getLevel()->addParticle(new DestroyBlockParticle(new Vector3($entity->getX(), $entity->getY() + $i, $entity->getZ()), Block::get(8,0)));
+		      $entity->getLevel()->addParticle(new DestroyBlockParticle(new Vector3($to->x, $to->y + $i, $to->z), Block::get(8,0)));
+		      $entity->getLevel()->addParticle(new DestroyBlockParticle(new Vector3($from->x, $from->y + $i, $from->z), Block::get(8,0)));
 			  }
 		 }
 	}
@@ -74,6 +76,9 @@ class Main extends PluginBase implements Listener{
 		  $x = rand($data["min"], $data["max"]);
 		  $z = rand($data["min"], $data["max"]);
 	     $pos = new Position($x, $data["world"]->getHighestBlockAt($x, $z) + 2, $z, $data["world"]);
+	     if($pos->level->getBlockIdAt($pos->x, $pos->y + 2, $pos->z) !== 0){   # make sure not spawning underground
+		    $pos = new Position($x + 5, $data["world"]->getHighestBlockAt($x + 5, $z + 5) + 2, $z + 5, $data["world"]);
+		  }
 	     $player->sendTip(self::$prefix.$this->cfg["wild.msg"]);
 	     $player->teleport($pos);
 	}
