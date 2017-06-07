@@ -24,7 +24,7 @@ use pocketmine\utils\Config;
  * Developed by TheAz928(Az928)
  * Editing or copying isn't allowed !
  * Any unauthorized copy of this 
- * file will be severly punished
+ * file will be severely punished
  * Twitter: @TheAz928
   **/
 
