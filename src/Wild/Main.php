@@ -4,6 +4,8 @@ namespace Wild;
 use pocketmine\Player;
 use pocketmine\Server;
 
+use pocketmine\block\Block;
+
 use pocketmine\plugin\PluginBase;
 
 use pocketmine\command\Command;
@@ -16,7 +18,7 @@ use pocketmine\math\Vector3;
 
 use pocketmine\level\Level;
 use pocketmine\level\Position;
-use pocketmine\level\particle\PortalParticle;
+use pocketmine\level\particle\DestroyBlockParticle;
 
 use pocketmine\utils\Config;
 
@@ -59,8 +61,8 @@ class Main extends PluginBase implements Listener{
 	public function onTeleport(EntityTeleportEvent $event){
 	     $entity = $event->getEntity();
 	     if($entity instanceof Player){
-		    for($i = 0; $i < 15; $i += 0.1){
-		      $entity->getLevel()->addParticle(new PortalParticle(new Vector3($entity->getX(), $entity->getY() + $i, $entity->getZ())));
+		    for($i = 0; $i < 3; $i += 0.1){
+		      $entity->getLevel()->addParticle(new DestroyBlockParticle(new Vector3($entity->getX(), $entity->getY() + $i, $entity->getZ()), Block::get(8,0)));
 			  }
 		 }
 	}
