@@ -22,3 +22,4 @@ Tired of your wild plugin teleporting you to Y: 128? Well not anymore!
 | --------------- |
 
 > Feel free to make a pull request or direct message me at  Twitter
+> Get latest phar [**here**](Github.com/ShiningMC/AdvancedWild/releases)
