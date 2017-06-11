@@ -59,6 +59,7 @@ class Main extends PluginBase implements Listener{
 	# @param ToDo: Make it more futuristic 
 	
 	public function onTeleport(EntityTeleportEvent $event){
+		  $entity = $event->getEntity();
 	     $to = $event->getTo();
 	     $from = $event->getFrom();
 	     if($entity instanceof Player){
@@ -100,3 +101,5 @@ class WildCommand extends Command{
 		  }
 	}
 }
+
+	
